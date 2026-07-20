@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="processing-page">
+
+    <div class="page-header">
+        <h1>Processamento</h1>
+        <div id="processing-status">Aguardando...</div>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-title">Documento</div>
+            <div class="card-value" id="docName">-</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Página</div>
+            <div class="card-value" id="currentPage">0 / 0</div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Progresso</div>
+            <div class="progress">
+                <div class="progress-bar" id="processingBar"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="dashboard-row">
+
+        <section class="panel">
+            <div class="panel-title">Visualizador do PDF</div>
+            <iframe id="pdfViewer"
+                    style="width:100%;height:700px;border:none;"></iframe>
+        </section>
+
+        <section class="panel">
+            <div class="panel-title">Página Atual</div>
+            <img id="pageImage"
+                 style="width:100%;border-radius:8px;">
+        </section>
+
+    </div>
+
+    <div class="dashboard-row">
+
+        <section class="panel">
+            <div class="panel-title">Crops</div>
+            <div id="cropGallery"></div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-title">Resposta da IA</div>
+            <pre id="jsonResult"></pre>
+        </section>
+
+    </div>
+
+    <section class="panel">
+        <div class="panel-title">Logs em Tempo Real</div>
+        <div id="liveLogs" class="logs"></div>
+    </section>
+
+</div>
+
+<script src="/static/js/processamento.js"></script>
+
+{% endblock %}

@@ -1,0 +1,1 @@
+Extraia equipamentos, TAG, quantidade, horas e observações. Retorne JSON.

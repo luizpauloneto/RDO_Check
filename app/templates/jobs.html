@@ -1,0 +1,282 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jobs-page">
+
+    <!-- ===================================================== -->
+    <!-- Cabeçalho -->
+    <!-- ===================================================== -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+
+                Jobs
+
+            </h1>
+
+            <p>
+
+                Histórico de documentos processados pelo RDO Check
+
+            </p>
+
+        </div>
+
+        <div class="page-actions">
+
+            <button id="btnRefresh">
+
+                Atualizar
+
+            </button>
+
+            <button id="btnNewJob">
+
+                Novo Processamento
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- Indicadores -->
+    <!-- ===================================================== -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-title">
+
+                Total
+
+            </div>
+
+            <div
+                class="card-value"
+                id="totalJobs">
+
+                0
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+
+                Processando
+
+            </div>
+
+            <div
+                class="card-value"
+                id="processingJobs">
+
+                0
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+
+                Finalizados
+
+            </div>
+
+            <div
+                class="card-value"
+                id="finishedJobs">
+
+                0
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+
+                Erros
+
+            </div>
+
+            <div
+                class="card-value"
+                id="errorJobs">
+
+                0
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- Filtros -->
+    <!-- ===================================================== -->
+
+    <div class="panel">
+
+        <div class="panel-title">
+
+            Pesquisa
+
+        </div>
+
+        <div class="filters">
+
+            <input
+                type="text"
+                id="searchText"
+                placeholder="Pesquisar documento...">
+
+            <select id="statusFilter">
+
+                <option value="">
+
+                    Todos
+
+                </option>
+
+                <option>
+
+                    Processando
+
+                </option>
+
+                <option>
+
+                    Finalizado
+
+                </option>
+
+                <option>
+
+                    Erro
+
+                </option>
+
+            </select>
+
+            <button id="btnSearch">
+
+                Pesquisar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- Tabela -->
+    <!-- ===================================================== -->
+
+    <div class="panel">
+
+        <div class="panel-title">
+
+            Histórico
+
+        </div>
+
+        <table
+            class="table"
+            id="jobsGrid">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Documento</th>
+
+                    <th>Empresa</th>
+
+                    <th>Páginas</th>
+
+                    <th>Status</th>
+
+                    <th>Início</th>
+
+                    <th>Tempo</th>
+
+                    <th>Confiabilidade</th>
+
+                    <th></th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- Paginação -->
+    <!-- ===================================================== -->
+
+    <div class="pagination">
+
+        <button>
+
+            Primeira
+
+        </button>
+
+        <button>
+
+            Anterior
+
+        </button>
+
+        <span>
+
+            Página
+
+            <strong>
+
+                1
+
+            </strong>
+
+        </span>
+
+        <button>
+
+            Próxima
+
+        </button>
+
+        <button>
+
+            Última
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="/static/js/jobs.js"></script>
+
+{% endblock %}

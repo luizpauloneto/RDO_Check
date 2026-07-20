@@ -1,0 +1,233 @@
+/* ==========================================================
+   INDEX
+   ========================================================== */
+
+.page-header{
+
+    margin-bottom:24px;
+
+}
+
+.page-header h1{
+
+    font-size:36px;
+
+    margin-bottom:8px;
+
+}
+
+.page-header p{
+
+    color:#94a3b8;
+
+}
+
+/* ==========================================================
+   Upload
+   ========================================================== */
+
+.upload-area{
+
+    width:100%;
+
+    min-height:260px;
+
+    border:3px dashed #2563eb;
+
+    border-radius:12px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    background:#0f172a;
+
+}
+
+.upload-area:hover{
+
+    background:#172554;
+
+}
+
+.upload-area.drag{
+
+    background:#1d4ed8;
+
+    border-color:#60a5fa;
+
+}
+
+.upload-area input{
+
+    display:none;
+
+}
+
+.upload-area p{
+
+    color:#cbd5e1;
+
+    font-size:18px;
+
+    text-align:center;
+
+    max-width:600px;
+
+}
+
+/* ==========================================================
+   Upload Button
+   ========================================================== */
+
+#btnUpload{
+
+    width:100%;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+#btnUpload:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ==========================================================
+   Links
+   ========================================================== */
+
+.cards a{
+
+    text-decoration:none;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    min-height:90px;
+
+}
+
+.cards a:hover{
+
+    color:white;
+
+}
+
+/* ==========================================================
+   Logs
+   ========================================================== */
+
+.logs{
+
+    background:#0f172a;
+
+    min-height:260px;
+
+    border-radius:10px;
+
+    border:1px solid #334155;
+
+    padding:16px;
+
+    overflow:auto;
+
+    font-family:Consolas;
+
+}
+
+.logs div{
+
+    margin-bottom:8px;
+
+}
+
+/* ==========================================================
+   Jobs
+   ========================================================== */
+
+#recentJobs tbody tr{
+
+    cursor:pointer;
+
+}
+
+#recentJobs tbody tr:hover{
+
+    background:#273449;
+
+}
+
+/* ==========================================================
+   Status
+   ========================================================== */
+
+#serverStatus{
+
+    color:#22c55e;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================================
+   Responsivo
+   ========================================================== */
+
+@media(max-width:900px){
+
+    .upload-area{
+
+        min-height:180px;
+
+    }
+
+    .upload-area p{
+
+        font-size:15px;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .page-header h1{
+
+        font-size:28px;
+
+    }
+
+}

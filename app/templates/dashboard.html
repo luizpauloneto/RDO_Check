@@ -1,0 +1,379 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- ===================================================== -->
+    <!-- CARDS -->
+    <!-- ===================================================== -->
+
+    <section class="cards">
+
+        <div class="card">
+
+            <div class="card-title">
+                Jobs Hoje
+            </div>
+
+            <div class="card-value" id="jobsToday">
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Processando
+            </div>
+
+            <div class="card-value" id="jobsRunning">
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Concluídos
+            </div>
+
+            <div class="card-value" id="jobsFinished">
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Erros
+            </div>
+
+            <div class="card-value" id="jobsError">
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Colaboradores
+            </div>
+
+            <div class="card-value" id="employees">
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Atividades
+            </div>
+
+            <div class="card-value" id="activities">
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Fotos
+            </div>
+
+            <div class="card-value" id="photos">
+                0
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+                Confiabilidade
+            </div>
+
+            <div class="card-value" id="confidence">
+                0 %
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- PRIMEIRA LINHA -->
+    <!-- ===================================================== -->
+
+    <section class="dashboard-row">
+
+        <!-- GPU -->
+
+        <div class="panel">
+
+            <div class="panel-title">
+
+                GPU
+
+            </div>
+
+            <table class="table">
+
+                <tr>
+
+                    <td>Modelo</td>
+
+                    <td id="gpuName">
+
+                        RTX 2000 Ada
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>VRAM</td>
+
+                    <td id="gpuMemory">
+
+                        --
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Uso</td>
+
+                    <td id="gpuUsage">
+
+                        --
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Temperatura</td>
+
+                    <td id="gpuTemp">
+
+                        --
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Modelo IA</td>
+
+                    <td id="modelName">
+
+                        Qwen2.5-VL
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+        <!-- PROCESSAMENTO -->
+
+        <div class="panel">
+
+            <div class="panel-title">
+
+                Processamento Atual
+
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-bar"
+                    id="processingBar">
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <table class="table">
+
+                <tr>
+
+                    <td>Documento</td>
+
+                    <td id="currentFile">
+
+                        -
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Página</td>
+
+                    <td id="currentPage">
+
+                        -
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Status</td>
+
+                    <td id="currentStatus">
+
+                        Aguardando...
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Tempo</td>
+
+                    <td id="elapsed">
+
+                        00:00
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- FILA -->
+    <!-- ===================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            Fila de Processamento
+
+        </div>
+
+        <table
+            class="table"
+            id="queueTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>Arquivo</th>
+
+                    <th>Páginas</th>
+
+                    <th>Status</th>
+
+                    <th>Progresso</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- JOBS -->
+    <!-- ===================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            Últimos Jobs
+
+        </div>
+
+        <table
+            class="table"
+            id="jobsTable">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Empresa</th>
+
+                    <th>Data</th>
+
+                    <th>Status</th>
+
+                    <th>Tempo</th>
+
+                    <th>Confiabilidade</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- LOGS -->
+    <!-- ===================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            Logs em Tempo Real
+
+        </div>
+
+        <div
+            id="liveLogs"
+            class="logs">
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="/static/js/dashboard.js"></script>
+
+{% endblock %}

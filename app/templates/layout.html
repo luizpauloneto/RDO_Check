@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        {% if title %}
+            {{ title }} - RDO Check
+        {% else %}
+            RDO Check
+        {% endif %}
+
+    </title>
+
+    <link
+        rel="icon"
+        href="/static/img/favicon.ico">
+
+    <!-- CSS GLOBAL -->
+
+    <link
+        rel="stylesheet"
+        href="/static/css/app.css">
+
+    <!-- CSS DA PÁGINA -->
+
+    {% block page_css %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ========================================== -->
+    <!-- Sidebar -->
+    <!-- ========================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h1>
+
+                RDO
+
+            </h1>
+
+            <span>
+
+                CHECK AI
+
+            </span>
+
+        </div>
+
+        <nav>
+
+            <a href="/">
+
+                Home
+
+            </a>
+
+            <a href="/dashboard">
+
+                Dashboard
+
+            </a>
+
+            <a href="/processamento">
+
+                Processamento
+
+            </a>
+
+            <a href="/jobs">
+
+                Jobs
+
+            </a>
+
+            <a href="/employees">
+
+                Colaboradores
+
+            </a>
+
+            <a href="/activities">
+
+                Atividades
+
+            </a>
+
+            <a href="/photos">
+
+                Fotos
+
+            </a>
+
+            <a href="/timeline">
+
+                Timeline
+
+            </a>
+
+            <a href="/audit">
+
+                Auditoria IA
+
+            </a>
+
+            <a href="/reports">
+
+                Relatórios
+
+            </a>
+
+            <a href="/settings">
+
+                Configurações
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- Conteúdo -->
+    <!-- ========================================== -->
+
+    <main class="main">
+
+        <!-- =============================== -->
+
+        <header class="topbar">
+
+            <div>
+
+                <strong>
+
+                    {{ title }}
+
+                </strong>
+
+            </div>
+
+            <div class="status-group">
+
+                <span>
+
+                    GPU
+
+                    <strong id="gpuUsage">
+
+                        --
+
+                    </strong>
+
+                </span>
+
+                <span>
+
+                    IA
+
+                    <strong>
+
+                        Qwen2.5-VL
+
+                    </strong>
+
+                </span>
+
+                <span>
+
+                    Status
+
+                    <strong id="serverStatus">
+
+                        Online
+
+                    </strong>
+
+                </span>
+
+            </div>
+
+        </header>
+
+        <!-- =============================== -->
+
+        <section class="content">
+
+            {% block content %}
+            {% endblock %}
+
+        </section>
+
+        <!-- =============================== -->
+
+        <footer>
+
+            <div>
+
+                RDO Check AI
+
+            </div>
+
+            <div>
+
+                Sprint 7
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- JS GLOBAL -->
+
+<script src="/static/js/app.js"></script>
+
+<!-- JS DA PÁGINA -->
+
+{% block page_js %}
+{% endblock %}
+
+</body>
+
+</html>

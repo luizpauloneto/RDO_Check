@@ -1,0 +1,27 @@
+Você receberá uma página inteira de um documento.
+
+Sua tarefa é APENAS classificar o tipo da página.
+
+Retorne APENAS JSON válido.
+
+{
+  "layout":"rdo"
+}
+
+Valores permitidos:
+
+- rdo
+- fotografico
+- lista_presenca
+- unknown
+
+Regras:
+
+- Se houver tabela de mão de obra, responda "rdo".
+- Se a página for predominantemente composta por fotografias e legendas, responda "fotografico".
+- Se houver lista de presença, responda "lista_presenca".
+- Caso não seja possível determinar com confiança, responda "unknown".
+
+Nunca escreva comentários.
+Nunca utilize markdown.
+Nunca escreva texto fora do JSON.

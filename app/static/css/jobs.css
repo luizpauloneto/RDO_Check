@@ -1,0 +1,414 @@
+/* ==========================================================
+   RDO CHECK
+   Jobs
+   ========================================================== */
+
+.jobs-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+/* ==========================================================
+   Cabeçalho
+   ========================================================== */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.page-header h1{
+
+    font-size:34px;
+
+    margin-bottom:6px;
+
+}
+
+.page-header p{
+
+    color:#94a3b8;
+
+}
+
+.page-actions{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.page-actions button{
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.page-actions button:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ==========================================================
+   Cards
+   ========================================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:18px;
+
+}
+
+.card{
+
+    background:#1e293b;
+
+    border-radius:10px;
+
+    padding:22px;
+
+    border:1px solid #334155;
+
+}
+
+.card-title{
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+}
+
+.card-value{
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    margin-top:14px;
+
+}
+
+/* ==========================================================
+   Painéis
+   ========================================================== */
+
+.panel{
+
+    background:#1e293b;
+
+    padding:22px;
+
+    border-radius:10px;
+
+    border:1px solid #334155;
+
+}
+
+.panel-title{
+
+    font-size:18px;
+
+    margin-bottom:18px;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================================
+   Pesquisa
+   ========================================================== */
+
+.filters{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+}
+
+.filters input{
+
+    flex:1;
+
+    min-width:280px;
+
+}
+
+.filters input,
+
+.filters select{
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #475569;
+
+    background:#0f172a;
+
+    color:white;
+
+}
+
+.filters button{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.filters button:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* ==========================================================
+   Grid
+   ========================================================== */
+
+.table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.table th{
+
+    background:#0f172a;
+
+    padding:14px;
+
+    color:#cbd5e1;
+
+    text-align:left;
+
+}
+
+.table td{
+
+    padding:14px;
+
+    border-bottom:1px solid #334155;
+
+}
+
+.table tbody tr{
+
+    transition:.2s;
+
+}
+
+.table tbody tr:hover{
+
+    background:#273449;
+
+}
+
+/* ==========================================================
+   Status
+   ========================================================== */
+
+.status{
+
+    padding:6px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.status-ok{
+
+    background:#14532d;
+
+    color:#bbf7d0;
+
+}
+
+.status-running{
+
+    background:#78350f;
+
+    color:#fde68a;
+
+}
+
+.status-error{
+
+    background:#7f1d1d;
+
+    color:#fecaca;
+
+}
+
+/* ==========================================================
+   Botões da tabela
+   ========================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    gap:8px;
+
+}
+
+.action-buttons button{
+
+    width:36px;
+
+    height:36px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#334155;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.action-buttons button:hover{
+
+    background:#2563eb;
+
+}
+
+/* ==========================================================
+   Paginação
+   ========================================================== */
+
+.pagination{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.pagination button{
+
+    padding:10px 16px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#334155;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+.pagination button:hover{
+
+    background:#2563eb;
+
+}
+
+/* ==========================================================
+   Responsivo
+   ========================================================== */
+
+@media(max-width:1200px){
+
+    .page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:16px;
+
+    }
+
+}
+
+@media(max-width:900px){
+
+    .filters{
+
+        flex-direction:column;
+
+    }
+
+    .filters input{
+
+        min-width:100%;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .table{
+
+        font-size:12px;
+
+    }
+
+}

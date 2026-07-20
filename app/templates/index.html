@@ -1,0 +1,343 @@
+{% extends "layout.html" %}
+
+<!-- ===================================================== -->
+<!-- CSS -->
+<!-- ===================================================== -->
+
+{% block page_css %}
+
+<link
+    rel="stylesheet"
+    href="/static/css/index.css">
+
+{% endblock %}
+
+<!-- ===================================================== -->
+<!-- CONTENT -->
+<!-- ===================================================== -->
+
+{% block content %}
+
+<div class="dashboard fade-in">
+
+    <!-- =============================================== -->
+    <!-- Cabeçalho -->
+    <!-- =============================================== -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+
+                RDO Check AI
+
+            </h1>
+
+            <p>
+
+                Plataforma Inteligente para Auditoria Automatizada de Relatórios Diários de Obras
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- =============================================== -->
+    <!-- Cards -->
+    <!-- =============================================== -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-title">
+
+                Servidor
+
+            </div>
+
+            <div class="card-value">
+
+                <span id="serverStatus">
+
+                    Online
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+
+                GPU
+
+            </div>
+
+            <div class="card-value">
+
+                RTX 2000 Ada
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+
+                Modelo
+
+            </div>
+
+            <div class="card-value">
+
+                Qwen2.5-VL
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-title">
+
+                Pipeline
+
+            </div>
+
+            <div class="card-value">
+
+                Pronto
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- =============================================== -->
+    <!-- Upload -->
+    <!-- =============================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            Novo Documento
+
+        </div>
+
+        <div class="panel-body">
+
+            <form
+                id="uploadForm"
+                enctype="multipart/form-data">
+
+                <div class="upload-area">
+
+                    <input
+
+                        id="pdf"
+
+                        type="file"
+
+                        name="file"
+
+                        accept=".pdf"
+
+                    >
+
+                    <p>
+
+                        Arraste um PDF aqui
+
+                        <br><br>
+
+                        ou clique para selecionar.
+
+                    </p>
+
+                </div>
+
+                <br>
+
+                <button
+
+                    id="btnUpload"
+
+                    class="w-100"
+
+                    type="submit">
+
+                    Processar Documento
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <!-- =============================================== -->
+    <!-- Navegação -->
+    <!-- =============================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            Navegação
+
+        </div>
+
+        <div class="panel-body">
+
+            <div class="cards">
+
+                <a href="/dashboard" class="card">
+
+                    Dashboard
+
+                </a>
+
+                <a href="/processamento" class="card">
+
+                    Processamento
+
+                </a>
+
+                <a href="/jobs" class="card">
+
+                    Jobs
+
+                </a>
+
+                <a href="/employees" class="card">
+
+                    Colaboradores
+
+                </a>
+
+                <a href="/activities" class="card">
+
+                    Atividades
+
+                </a>
+
+                <a href="/photos" class="card">
+
+                    Fotos
+
+                </a>
+
+                <a href="/timeline" class="card">
+
+                    Timeline
+
+                </a>
+
+                <a href="/reports" class="card">
+
+                    Relatórios
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =============================================== -->
+    <!-- Jobs -->
+    <!-- =============================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            Últimos Processamentos
+
+        </div>
+
+        <div class="panel-body">
+
+            <table
+
+                class="table"
+
+                id="recentJobs">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Documento</th>
+
+                        <th>Status</th>
+
+                        <th>Empresa</th>
+
+                        <th>Data</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- =============================================== -->
+    <!-- Eventos -->
+    <!-- =============================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            Eventos
+
+        </div>
+
+        <div class="panel-body">
+
+            <div
+
+                id="liveLogs"
+
+                class="logs">
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+<!-- ===================================================== -->
+<!-- JS -->
+<!-- ===================================================== -->
+
+{% block page_js %}
+
+<script src="/static/js/index.js"></script>
+
+{% endblock %}

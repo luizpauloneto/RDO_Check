@@ -1,0 +1,15 @@
+Extraia assinaturas.
+
+{
+  "assinaturas":[
+    {
+      "nome":"",
+      "cargo":"",
+      "presente":true
+    }
+  ]
+}
+
+Se houver assinatura sem identificação:
+nome=""
+presente=true

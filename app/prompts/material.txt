@@ -1,0 +1,1 @@
+Extraia todos os materiais utilizados com quantidade e unidade. Retorne JSON.

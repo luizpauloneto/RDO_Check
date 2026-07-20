@@ -1,0 +1,9 @@
+Extraia SOMENTE observações.
+
+{
+  "observacoes":[
+    "..."
+  ]
+}
+
+Sem comentários.

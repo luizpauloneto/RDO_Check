@@ -1,0 +1,1 @@
+Extraia as condições climáticas informadas no documento. Retorne JSON.
