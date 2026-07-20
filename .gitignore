@@ -27,7 +27,6 @@ debug/
 # Windows
 Thumbs.db
 Desktop.ini
-*.env
 
 # Python cache
 .pytest_cache/
@@ -38,3 +37,8 @@ Desktop.ini
 
 # Temp
 temp/
+
+# Ambiente
+.env
+.env.*
+!.env.example

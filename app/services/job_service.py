@@ -255,45 +255,88 @@ class JobService:
 
         )
 
-        tmp = arquivo.with_suffix(
+        # Um nome exclusivo impede que salvamentos concorrentes disputem job.tmp.
+        tmp = arquivo.with_name(
 
-            ".tmp"
+            f".{arquivo.stem}.{uuid4().hex}.tmp"
+
+        )
+
+        payload = job.model_dump(
+
+            mode="json"
 
         )
 
-        with open(
+        # No Windows, leitores e antivírus podem manter job.json aberto por
+        # instantes. A trava e as tentativas preservam a gravação atômica.
+        with JOB_FILE_LOCK:
 
-            tmp,
+            try:
 
-            "w",
+                with open(
 
-            encoding="utf-8"
+                    tmp,
 
-        ) as f:
+                    "w",
 
-            json.dump(
+                    encoding="utf-8"
 
-                job.model_dump(
+                ) as f:
 
-                    mode="json"
+                    json.dump(
 
-                ),
+                        payload,
 
-                f,
+                        f,
 
-                indent=4,
+                        indent=4,
 
-                ensure_ascii=False,
+                        ensure_ascii=False,
 
-            )
+                    )
 
-            f.flush()
+                    f.flush()
 
-        tmp.replace(
+                    os.fsync(f.fileno())
 
-            arquivo
+                for attempt in range(5):
 
-        )
+                    try:
+
+                        os.replace(
+
+                            tmp,
+
+                            arquivo
+
+                        )
+
+                        break
+
+                    except PermissionError:
+
+                        if attempt == 4:
+
+                            raise
+
+                        time.sleep(
+
+                            0.05 * (2 ** attempt)
+
+                        )
+
+            finally:
+
+                if tmp.exists():
+
+                    try:
+
+                        tmp.unlink()
+
+                    except OSError:
+
+                        pass
 
     def load(
 

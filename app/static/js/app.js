@@ -8,8 +8,6 @@ class RDOApp {
     constructor() {
 
         this.sidebarCollapsed = false;
-        this.socket = null;
-
         this.init();
 
     }
@@ -19,8 +17,6 @@ class RDOApp {
         console.log("RDO Check iniciado.");
 
         this.initSidebar();
-
-        this.connectWebSocket();
 
         this.registerEvents();
 
@@ -79,118 +75,6 @@ class RDOApp {
             }
 
         };
-
-    }
-
-    // =====================================================
-    // WebSocket
-    // =====================================================
-
-    connectWebSocket() {
-
-        const protocol = location.protocol === "https:"
-            ? "wss"
-            : "ws";
-
-        const url = `${protocol}://${location.host}/ws`;
-
-        try {
-
-            this.socket = new WebSocket(url);
-
-            this.socket.onopen = () => {
-
-                this.toast("WebSocket conectado");
-
-            };
-
-            this.socket.onclose = () => {
-
-                this.toast("Conexão perdida");
-
-                setTimeout(() => {
-
-                    this.connectWebSocket();
-
-                }, 5000);
-
-            };
-
-            this.socket.onerror = (err) => {
-
-                console.error(err);
-
-            };
-
-            this.socket.onmessage = (event) => {
-
-                this.handleMessage(event.data);
-
-            };
-
-        }
-
-        catch (e) {
-
-            console.error(e);
-
-        }
-
-    }
-
-    // =====================================================
-    // Mensagens
-    // =====================================================
-
-    handleMessage(message) {
-
-        try {
-
-            const data = JSON.parse(message);
-
-            if (data.progress !== undefined) {
-
-                this.updateProgress(data.progress);
-
-            }
-
-            if (data.status) {
-
-                const obj = document.getElementById("job-status");
-
-                if (obj)
-                    obj.innerText = data.status;
-
-            }
-
-            if (data.toast) {
-
-                this.toast(data.toast);
-
-            }
-
-        }
-
-        catch {
-
-            console.log(message);
-
-        }
-
-    }
-
-    // =====================================================
-    // Progress
-    // =====================================================
-
-    updateProgress(value) {
-
-        const bar = document.querySelector(".progress-bar");
-
-        if (!bar)
-            return;
-
-        bar.style.width = value + "%";
 
     }
 

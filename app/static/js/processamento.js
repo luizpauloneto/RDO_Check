@@ -1356,3 +1356,7 @@ class ProcessingController {
 }
 	
 	
+// Inicializa o controlador após a montagem do DOM da página.
+window.addEventListener("DOMContentLoaded", () => {
+    window.processingController = new ProcessingController();
+});
