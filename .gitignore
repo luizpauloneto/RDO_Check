@@ -27,6 +27,7 @@ debug/
 # Windows
 Thumbs.db
 Desktop.ini
+.env
 
 # Python cache
 .pytest_cache/
